@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Marques;
 use App\Form\MarquesType;
 use App\Repository\MarquesRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class MarquesController extends AbstractController
     /**
      * @Route("/", name="marques_index", methods={"GET"})
      */
-    public function index(MarquesRepository $marquesRepository): Response
+    public function index(MarquesRepository $marquesRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/marques/index.html.twig', [
             'marques' => $marquesRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

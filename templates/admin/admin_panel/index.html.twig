@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.admin.html.twig' %}
 
 {% block title %}Hello AdminPanelController!{% endblock %}
 
@@ -7,6 +7,9 @@
     <div class="row">
         <div class="col-3">
             <a href="{{path('main_admin_index')}}">Accueil</a>
+        </div>
+        <div class="col-3">
+            <a href="{{path('main_features_index')}}">Features</a>
         </div>
     </div>
     <div class="row">

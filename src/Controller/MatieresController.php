@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Matieres;
 use App\Form\MatieresType;
 use App\Repository\MatieresRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class MatieresController extends AbstractController
     /**
      * @Route("/", name="matieres_index", methods={"GET"})
      */
-    public function index(MatieresRepository $matieresRepository): Response
+    public function index(MatieresRepository $matieresRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/matieres/index.html.twig', [
             'matieres' => $matieresRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

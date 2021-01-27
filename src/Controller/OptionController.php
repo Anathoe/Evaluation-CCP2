@@ -4,7 +4,9 @@ namespace App\Controller;
 
 use App\Entity\Option;
 use App\Form\OptionType;
+use App\Repository\MenRepository;
 use App\Repository\OptionRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class OptionController extends AbstractController
     /**
      * @Route("/", name="option_index", methods={"GET"})
      */
-    public function index(OptionRepository $optionRepository): Response
+    public function index(OptionRepository $optionRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/option/index.html.twig', [
             'options' => $optionRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

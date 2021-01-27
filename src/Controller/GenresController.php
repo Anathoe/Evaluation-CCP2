@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Genres;
 use App\Form\GenresType;
 use App\Repository\GenresRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class GenresController extends AbstractController
     /**
      * @Route("/", name="genres_index", methods={"GET"})
      */
-    public function index(GenresRepository $genresRepository): Response
+    public function index(GenresRepository $genresRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/genres/index.html.twig', [
             'genres' => $genresRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

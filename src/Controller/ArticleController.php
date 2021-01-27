@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Article;
 use App\Form\ArticleType;
 use App\Repository\ArticleRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class ArticleController extends AbstractController
     /**
      * @Route("/", name="article_index", methods={"GET"})
      */
-    public function index(ArticleRepository $articleRepository): Response
+    public function index(ArticleRepository $articleRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/article/index.html.twig', [
             'articles' => $articleRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

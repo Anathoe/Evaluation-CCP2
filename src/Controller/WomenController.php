@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Women;
 use App\Form\WomenType;
+use App\Repository\MenRepository;
 use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,10 +19,12 @@ class WomenController extends AbstractController
     /**
      * @Route("/", name="women_index", methods={"GET"})
      */
-    public function index(WomenRepository $womenRepository): Response
+    public function index(WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/women/index.html.twig', [
             'womens' => $womenRepository->findAll(),
+            'men'=> $menRepository->findAll(),
+            
         ]);
     }
 

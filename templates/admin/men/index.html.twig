@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'base.admin.html.twig' %}
 
 {% block title %}Men index{% endblock %}
 
@@ -18,7 +18,7 @@
             </tr>
         </thead>
         <tbody>
-        {% for man in mens %}
+        {% for man in men %}
             <tr>
                 <td>{{ man.id }}</td>
                 <td>{{ man.TitleShop }}</td>
@@ -39,7 +39,7 @@
         </tbody>
     </table>
 
-    {% if mens == false %}
+    {% if men == false %}
         <a href="{{ path('men_new') }}">Create new</a>
     {% endif %}
 

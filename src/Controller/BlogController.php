@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Blog;
 use App\Form\BlogType;
 use App\Repository\BlogRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class BlogController extends AbstractController
     /**
      * @Route("/", name="blog_index", methods={"GET"})
      */
-    public function index(BlogRepository $blogRepository): Response
+    public function index(BlogRepository $blogRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/blog/index.html.twig', [
             'blogs' => $blogRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

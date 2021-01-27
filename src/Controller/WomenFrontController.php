@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\ArticleRepository;
+use App\Repository\MenRepository;
 use App\Repository\WomenRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,12 +14,13 @@ class WomenFrontController extends AbstractController
     /**
      * @Route("/women/front", name="women_front")
      */
-    public function index( ArticleRepository $articleRepository, WomenRepository $womenRepository): Response
+    public function index( ArticleRepository $articleRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('women_front/index.html.twig', [
             'controller_name' => 'WomenFrontController',
             'articles'=>$articleRepository->findAll(),
             'womens'=>$womenRepository->findAll(),
+            'men'=>$menRepository->findAll(),
         ]);
     }
 }

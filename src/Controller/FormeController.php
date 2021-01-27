@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Forme;
 use App\Form\FormeType;
 use App\Repository\FormeRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class FormeController extends AbstractController
     /**
      * @Route("/", name="forme_index", methods={"GET"})
      */
-    public function index(FormeRepository $formeRepository): Response
+    public function index(FormeRepository $formeRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/forme/index.html.twig', [
             'formes' => $formeRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

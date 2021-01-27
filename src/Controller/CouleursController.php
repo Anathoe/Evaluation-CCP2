@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Couleurs;
 use App\Form\CouleursType;
 use App\Repository\CouleursRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class CouleursController extends AbstractController
     /**
      * @Route("/", name="couleurs_index", methods={"GET"})
      */
-    public function index(CouleursRepository $couleursRepository): Response
+    public function index(CouleursRepository $couleursRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/couleurs/index.html.twig', [
             'couleurs' => $couleursRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 

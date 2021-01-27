@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\MainAdmin;
 use App\Form\MainAdminType;
 use App\Repository\MainAdminRepository;
+use App\Repository\MenRepository;
+use App\Repository\WomenRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,10 +20,12 @@ class MainAdminController extends AbstractController
     /**
      * @Route("/", name="main_admin_index", methods={"GET"})
      */
-    public function index(MainAdminRepository $mainAdminRepository): Response
+    public function index(MainAdminRepository $mainAdminRepository, WomenRepository $womenRepository, MenRepository $menRepository): Response
     {
         return $this->render('admin/main_admin/index.html.twig', [
             'main_admins' => $mainAdminRepository->findAll(),
+            'womens' => $womenRepository->findAll(),
+            'men' => $menRepository->findAll(),
         ]);
     }
 
