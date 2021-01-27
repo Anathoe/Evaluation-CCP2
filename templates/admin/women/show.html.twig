@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Women{% endblock %}
+
+{% block body %}
+    <h1>Women</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ woman.id }}</td>
+            </tr>
+            <tr>
+                <th>TitleShop</th>
+                <td>{{ woman.TitleShop }}</td>
+            </tr>
+            <tr>
+                <th>SubtitleShop</th>
+                <td>{{ woman.SubtitleShop }}</td>
+            </tr>
+            <tr>
+                <th>TitleEx</th>
+                <td>{{ woman.TitleEx }}</td>
+            </tr>
+            <tr>
+                <th>TextEx</th>
+                <td>{{ woman.TextEx }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('women_index') }}">back to list</a>
+
+    <a href="{{ path('women_edit', {'id': woman.id}) }}">edit</a>
+
+    {{ include('admin/women/_delete_form.html.twig') }}
+{% endblock %}

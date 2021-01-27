@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Women{% endblock %}
+
+{% block body %}
+    <h1>Create new Women</h1>
+
+    {{ include('admin/women/_form.html.twig') }}
+
+    <a href="{{ path('women_index') }}">back to list</a>
+{% endblock %}

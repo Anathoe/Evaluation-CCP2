@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Couleurs{% endblock %}
+
+{% block body %}
+    <h1>Create new Couleurs</h1>
+
+    {{ include('admin/couleurs/_form.html.twig') }}
+
+    <a href="{{ path('couleurs_index') }}">back to list</a>
+{% endblock %}

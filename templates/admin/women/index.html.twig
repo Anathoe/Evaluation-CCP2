@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Women index{% endblock %}
+
+{% block body %}
+    <h1>Women index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TitleShop</th>
+                <th>SubtitleShop</th>
+                <th>PictureShop</th>
+                <th>TitleEx</th>
+                <th>TextEx</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for woman in womens %}
+            <tr>
+                <td>{{ woman.id }}</td>
+                <td>{{ woman.TitleShop }}</td>
+                <td>{{ woman.SubtitleShop }}</td>
+                <td>{{ woman.image }}</td>
+                <td>{{ woman.TitleEx }}</td>
+                <td>{{ woman.TextEx }}</td>
+                <td>
+                    <a href="{{ path('women_show', {'id': woman.id}) }}">show</a>
+                    <a href="{{ path('women_edit', {'id': woman.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if womens == false %}
+    <a href="{{ path('women_new') }}">Create new</a>
+    {% endif %}
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forme{% endblock %}
+
+{% block body %}
+    <h1>Forme</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ forme.id }}</td>
+            </tr>
+            <tr>
+                <th>Formes</th>
+                <td>{{ forme.Formes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('forme_index') }}">back to list</a>
+
+    <a href="{{ path('forme_edit', {'id': forme.id}) }}">edit</a>
+
+    {{ include('admin/forme/_delete_form.html.twig') }}
+{% endblock %}

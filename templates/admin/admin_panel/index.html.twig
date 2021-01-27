@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello AdminPanelController!{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <a href="{{path('women_index')}}">Women</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+        <a href="{{path('men_index')}}">Men</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+        Contact
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+        Help
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <a href="{{path('blog_index')}}">Blog</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-2">
+            <a href="{{path('article_index')}}">Articles</a>
+        </div>
+        <div class="col-2">
+            <a href="{{path('forme_index')}}">Forme</a>
+        </div>
+        <div class="col-2">
+            <a href="{{path('couleurs_index')}}">Couleur</a>
+        </div>
+        <div class="col-2">
+            <a href="{{path('marques_index')}}">Marque</a>
+        </div>
+        <div class="col-2">
+            <a href="{{path('matieres_index')}}">Matiere</a>
+        </div>
+        <div class="col-2">
+            <a href="{{path('option_index')}}">Option</a>
+        </div>
+        
+    </div>
+</div>
+{% endblock %}
