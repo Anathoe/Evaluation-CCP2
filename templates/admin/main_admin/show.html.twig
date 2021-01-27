@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MainAdmin{% endblock %}
+
+{% block body %}
+    <h1>MainAdmin</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ main_admin.id }}</td>
+            </tr>
+            <tr>
+                <th>TitleShop</th>
+                <td>{{ main_admin.TitleShop }}</td>
+            </tr>
+            <tr>
+                <th>SubtitleShop</th>
+                <td>{{ main_admin.SubtitleShop }}</td>
+            </tr>
+            <tr>
+                <th>TitleEx</th>
+                <td>{{ main_admin.TitleEx }}</td>
+            </tr>
+            <tr>
+                <th>SubtitleEx</th>
+                <td>{{ main_admin.SubtitleEx }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('main_admin_index') }}">back to list</a>
+
+    <a href="{{ path('main_admin_edit', {'id': main_admin.id}) }}">edit</a>
+
+    {{ include('admin/main_admin/_delete_form.html.twig') }}
+{% endblock %}

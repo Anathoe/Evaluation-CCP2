@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}MainAdmin index{% endblock %}
+
+{% block body %}
+    <h1>MainAdmin index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>TitleShop</th>
+                <th>SubtitleShop</th>
+                <th>Image</th>
+                <th>TitleEx</th>
+                <th>SubtitleEx</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for main_admin in main_admins %}
+            <tr>
+                <td>{{ main_admin.id }}</td>
+                <td>{{ main_admin.TitleShop }}</td>
+                <td>{{ main_admin.SubtitleShop }}</td>
+                <td>{{ main_admin.image}}</td>
+                <td>{{ main_admin.TitleEx }}</td>
+                <td>{{ main_admin.SubtitleEx }}</td>
+                <td>
+                    <a href="{{ path('main_admin_show', {'id': main_admin.id}) }}">show</a>
+                    <a href="{{ path('main_admin_edit', {'id': main_admin.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('main_admin_new') }}">Create new</a>
+{% endblock %}

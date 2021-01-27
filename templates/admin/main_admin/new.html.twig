@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MainAdmin{% endblock %}
+
+{% block body %}
+    <h1>Create new MainAdmin</h1>
+
+    {{ include('admin/main_admin/_form.html.twig') }}
+
+    <a href="{{ path('main_admin_index') }}">back to list</a>
+{% endblock %}
