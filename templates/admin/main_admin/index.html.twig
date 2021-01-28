@@ -39,5 +39,8 @@
         </tbody>
     </table>
 
+    {% if womens == false %}
     <a href="{{ path('main_admin_new') }}">Create new</a>
+    {% endif %}
+    
 {% endblock %}
